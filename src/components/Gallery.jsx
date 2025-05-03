@@ -6,11 +6,12 @@ const Gallery = () => {
   //   const images = JSON.parse(localStorage.getItem("gallery")) || [];
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const API_BASE = import.meta.env.VITE_API_URL;
 
   console.log(images);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/images")
+      .get(`${API_BASE}/images`)
       .then((res) => {
         setImages(res.data);
         setLoading(false);
